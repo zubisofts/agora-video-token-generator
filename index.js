@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.get("/hello",(req,res)=>{
-    res.send('Hello, welcome to CallMe mmm')
+    res.send('Hello, welcome to CallMe uuu')
 });
 
 app.post('/token', (req, res) => {
@@ -41,7 +41,7 @@ app.post('/token', (req, res) => {
                 "token": tokenA
             });
     } catch (e) {
-        res.send('Error occured');
+        res.send(`${appID}:${appCertificate}`);
     }
 
 });
