@@ -44,7 +44,11 @@ app.post('/token', (req, res) => {
         res.json(
             {
                 "error": true,
-                "message": e.message
+                "message": e.message,
+                "appId":appID,
+                "cert":appCertificate,
+                "channel":channelName,
+                "uid":uid
             });
     }
 
