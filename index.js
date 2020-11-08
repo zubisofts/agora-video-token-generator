@@ -41,16 +41,7 @@ app.post('/token', (req, res) => {
                 "token": tokenA
             });
     } catch (e) {
-        res.json(
-            {
-                "error": true,
-                "appId":appID,
-                "cert":appCertificate,
-                "channel":channelName,
-                "uid":uid,
-                "message": e.message,
-                
-            });
+        res.send('Error occured');
     }
 
 });
