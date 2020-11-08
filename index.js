@@ -35,13 +35,13 @@ app.post('/token', (req, res) => {
         // const tokenB = RtcTokenBuilder.buildTokenWithAccount(appID, appCertificate, channelName, account, role, privilegeExpiredTs);
         // console.log("Token With UserAccount: " + tokenB);
 
-        res.json(
+        res.status(200).json(
             {
                 "error": false,
                 "token": tokenA
             });
     } catch (e) {
-        res.json(
+        res.status(501).json(
             {
                 "error": true,
                 "appId":appID,
