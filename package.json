@@ -1,0 +1,20 @@
+{
+  "name": "flutter_agora_api",
+  "version": "1.0.0",
+  "description": "A simple API to generate Agora call token.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Flutter",
+    "Agora",
+    "Node"
+  ],
+  "author": "Zubby J.",
+  "license": "ISC",
+  "dependencies": {
+    "agora-access-token": "^2.0.4",
+    "express": "^4.17.1"
+  }
+}
