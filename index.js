@@ -15,6 +15,7 @@ app.post('/token', (req, res) => {
     const channelName = req.body.channelName;
     const uid = req.body.uid;
     // const account = req.body.account;
+    const account = "2882341273";
     const role = RtcRole.PUBLISHER;
 
     const expirationTimeInSeconds = 3600
@@ -27,27 +28,23 @@ app.post('/token', (req, res) => {
 
     try {
         // Build token with uid
-        const tokenA = RtcTokenBuilder.buildTokenWithUid(
-            appID, appCertificate, channelName, uid, role, privilegeExpiredTs);
-        console.log("Token With Integer Number Uid: " + tokenA);
+        // const tokenA = RtcTokenBuilder.buildTokenWithUid(
+        //     appID, appCertificate, channelName, uid, role, privilegeExpiredTs);
+        // console.log("Token With Integer Number Uid: " + tokenA);
 
         // Build token with user account
-        // const tokenB = RtcTokenBuilder.buildTokenWithAccount(appID, appCertificate, channelName, account, role, privilegeExpiredTs);
+        const tokenB = RtcTokenBuilder.buildTokenWithAccount(appID, appCertificate, channelName, account, role, privilegeExpiredTs);
         // console.log("Token With UserAccount: " + tokenB);
 
         res.status(200).json(
             {
                 "error": false,
-                "token": tokenA
+                "token": tokenB
             });
     } catch (e) {
         res.status(501).json(
             {
                 "error": true,
-                "appId":appID,
-                "cert":appCertificate,
-                "channel":channelName,
-                "uid":uid,
                 "message": e.message,
                 
             });
