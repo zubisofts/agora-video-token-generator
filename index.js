@@ -14,9 +14,10 @@ app.post('/token', (req, res) => {
     const appCertificate = req.body.appCertificate;
     const channelName = req.body.channelName;
     const uid = req.body.uid;
+    const userRole = req.body.role;
     // const account = req.body.account;
-    const account = "2882341273";
-    const role = RtcRole.SUBSCRIBER;
+    // const account = "2882341273";
+    const role = userRole === "publisher" ? RtcRole.PUBLISHER : RtcRole.SUBSCRIBER;
 
     const expirationTimeInSeconds = 3600
 
@@ -30,11 +31,12 @@ app.post('/token', (req, res) => {
         // Build token with uid
         const tokenA = RtcTokenBuilder.buildTokenWithUid(
             appID, appCertificate, channelName, uid, role, privilegeExpiredTs);
-        console.log("Token With Integer Number Uid: " + tokenA);
+        // console.log("Token: " + tokenA);
+        // console.log("Role:" + role);
 
         // // Build token with user account
         // const tokenB = RtcTokenBuilder.buildTokenWithAccount(appID, appCertificate, channelName, account, role, privilegeExpiredTs);
-        // // console.log("Token With UserAccount: " + tokenB);
+        // console.log("Token With UserAccount: " + tokenA);
 
         res.status(200).json(
             {
