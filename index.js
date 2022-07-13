@@ -4,8 +4,17 @@ const { RtcTokenBuilder, RtmTokenBuilder, RtcRole, RtmRole } = require('agora-ac
 const app = express();
 app.use(express.json());
 
-app.get("/hello",(req,res)=>{
+app.get("/hello", (req, res) => {
     res.send('Hello, welcome to CallMe jjj')
+});
+
+app.post("/paystack_success", (req, res) => {
+    console.log(req.body);
+    res.status(200).json(
+        {
+            "error": false,
+            "data": req.body
+        });
 });
 
 app.post('/token', (req, res) => {
@@ -48,7 +57,7 @@ app.post('/token', (req, res) => {
             {
                 "error": true,
                 "message": e.message,
-                
+
             });
     }
 
