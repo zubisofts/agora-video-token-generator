@@ -14,7 +14,7 @@ app.post("/paystack_success", (req, res) => {
     res.status(200).json(
         {
             "error": false,
-            "data": req.body
+            "data": req.body.data.metadata
         });
 });
 
