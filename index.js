@@ -10,7 +10,7 @@ app.get("/hello", (req, res) => {
 
 app.post("/paystack_success", (req, res) => {
     console.log("Paystack Webhook event received");
-    console.log(req.req.body.data.metadata);
+    console.log(req.body.data.metadata);
     res.status(200).json(
         {
             "error": false,
