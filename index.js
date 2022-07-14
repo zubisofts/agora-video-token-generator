@@ -10,7 +10,15 @@ app.get("/hello", (req, res) => {
 
 app.post("/paystack_success", (req, res) => {
     console.log("Paystack Webhook event received");
-    console.log(req.body.data.metadata);
+    console.log({
+        amount: req.body.data.amount,
+        currency: req.body.data.currency,
+        status: req.body.data.status,
+        reference: req.body.data.reference,
+        gateway_response: req.body.data.gateway_response,
+        customer: req.body.data.customer,
+        user:req.body.data.metadata
+    });
     res.status(200).json(
         {
             "error": false,
