@@ -9,11 +9,20 @@ app.get("/hello", (req, res) => {
 });
 
 app.post("/paystack_success", (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     res.status(200).json(
         {
             "error": false,
             "data": req.body
+        });
+});
+
+app.post("/paystack_callback", (req, res) => {
+    console.log(req.params);
+    res.status(200).json(
+        {
+            "error": false,
+            "data": req.params
         });
 });
 
