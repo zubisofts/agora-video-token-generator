@@ -9,7 +9,8 @@ app.get("/hello", (req, res) => {
 });
 
 app.post("/paystack_success", (req, res) => {
-    // console.log(req.body);
+    console.log("Paystack Webhook event received");
+    console.log(req.body);
     res.status(200).json(
         {
             "error": false,
@@ -18,6 +19,7 @@ app.post("/paystack_success", (req, res) => {
 });
 
 app.get("/paystack_callback", (req, res) => {
+    console.log("Paystack Callback received");
     console.log(req.params);
     res.status(200).json(
         {
@@ -25,6 +27,7 @@ app.get("/paystack_callback", (req, res) => {
             "data": req.params
         });
 });
+
 
 app.post('/token', (req, res) => {
     // Rtc Examples
