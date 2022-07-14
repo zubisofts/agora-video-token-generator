@@ -17,7 +17,7 @@ app.post("/paystack_success", (req, res) => {
         });
 });
 
-app.post("/paystack_callback", (req, res) => {
+app.get("/paystack_callback", (req, res) => {
     console.log(req.params);
     res.status(200).json(
         {
