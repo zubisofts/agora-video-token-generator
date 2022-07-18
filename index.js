@@ -26,8 +26,8 @@ app.post("/paystack_success", (req, res) => {
         });
 });
 
-app.get("/paystack_callback", (req, res) => {
-    console.log("Paystack Callback received");
+app.get("/paystack_webhook", (req, res) => {
+    console.log("Paystack Webhook event received");
     console.log(req.params);
     res.status(200).json(
         {
